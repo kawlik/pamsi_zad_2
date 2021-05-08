@@ -53,8 +53,8 @@ class GraphMatrix {
         inline int getV() { return this->V; }
 
         //  maintenance
+        void fill( int density );
         void print();
-        void fill();
 };
 
 /*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */

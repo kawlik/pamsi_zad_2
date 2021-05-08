@@ -7,9 +7,9 @@ RELOC = obj/main.o obj/Kruskal.o obj/Prima.o obj/graphList.o obj/graphMatrix.o o
 
 #	#	#	#	#	#	#	#
 
-__start__: ./output
-	clear && ./output
-	clear
+#__start__: ./output
+#	clear && ./output
+#	clear
 
 ./output: obj ${RELOC}
 	g++ ${FINAL} -o ./output ${RELOC}

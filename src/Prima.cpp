@@ -73,7 +73,9 @@ void Prima( GraphList target, bool print ) {
         }
     }
 
-    cout << "MST weight = " << weight << endl;
+    if( print ) {
+        cout << "MST weight = " << weight << endl;
+    }
 
     /*   *   *   *   *   *   *   *   *   *   */
     
@@ -135,7 +137,9 @@ void Prima( GraphMatrix target, bool print ) {
         }
     }
 
-    cout << "MST weight = " << weight << endl;
+    if( print ) {
+        cout << "MST weight = " << weight << endl;
+    }
 
     /*   *   *   *   *   *   *   *   *   *   */
     

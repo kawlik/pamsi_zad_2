@@ -216,12 +216,20 @@ void GraphList::print() {
     }
 }
 
-void GraphList::fill() {
+void GraphList::fill( int density ) {
+
+    for( int i = 0; i < this->V; i++ ) {
+        for( int j = 0; j < this->V; j++ ) {
+            this->removeEdge( i, j );
+        }
+    }
     
     for( int i = 0; i < this->V; i++ ) {
         for( int j = 0; j < this->V; j++ ) {
 
-            if( i == j ) { continue; }  //  prevents a loop in graph
+            if( i >= j ) { continue; }  //  prevents a loop in graph
+
+            if( getRand<int>( 1, 100 ) < (100 - density) ) { continue; }    //  density check
 
             this->insertEdge( i, j, getRand<int>( 1, this->V ));
         }

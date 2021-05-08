@@ -16,6 +16,7 @@ using namespace std;
 
 struct Node {
 
+    Node * prev;
     Node * next;
     
     int goal;
@@ -58,8 +59,8 @@ class GraphList {
         inline int getV() { return this->V; }
 
         //  maintenance
+        void fill( int density );
         void print();
-        void fill();
 };
 
 /*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
