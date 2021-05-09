@@ -78,7 +78,7 @@ void test( int density, int repeats, int size ) {
 
         stop = clock();
 
-        timeGLK += stop - start;
+        timeGLK += ( stop - start );
 
         /*   *   *   *   *   */
 
@@ -88,10 +88,10 @@ void test( int density, int repeats, int size ) {
 
         stop = clock();
 
-        timeGMK += stop - start;
+        timeGMK += ( stop - start );
     }
 
-    cout << endl << endl;
+    cout << endl;
     cout << " Kruskal on density " << density << " finished ok. " << endl;
 
     //  Testy algorytmu Prima
@@ -111,7 +111,7 @@ void test( int density, int repeats, int size ) {
 
         stop = clock();
 
-        timeGLP += stop - start;
+        timeGLP += ( stop - start );
 
         /*   *   *   *   *   */
 
@@ -121,10 +121,10 @@ void test( int density, int repeats, int size ) {
 
         stop = clock();
 
-        timeGMP += stop - start;
+        timeGMP += ( stop - start );
     }
 
-    cout << endl << endl;
+    cout << endl;
     cout << " Prima on density " << density << " finished ok. " << endl;
 
     /*   *   *   *   *   *   *   *   *   *   */
@@ -136,10 +136,10 @@ void test( int density, int repeats, int size ) {
     cout << endl << endl;
     cout << " Graf zaimplementowany na liście sąsiedzctwa :: " << endl;
     cout << " -> całkowity czas wykonywania algorytmu Kruskala: " << 1000000 * timeGLK / CLOCKS_PER_SEC << " us" << endl;
-    cout << " -> całkowity czas wykonywania algorytmu Prima: " << 1000000 * timeGLK / CLOCKS_PER_SEC << " us" << endl;
+    cout << " -> całkowity czas wykonywania algorytmu Prima: " << 1000000 * timeGLP / CLOCKS_PER_SEC << " us" << endl;
     cout << endl;
     cout << " -> średni czas wykonywania algorytmu Kruskala: " << ( 1000000 / repeats ) * timeGLK / CLOCKS_PER_SEC << " us" << endl;
-    cout << " -> średni czas wykonywania algorytmu Prima: " << ( 1000000 / repeats ) * timeGLK / CLOCKS_PER_SEC << " us" << endl;
+    cout << " -> średni czas wykonywania algorytmu Prima: " << ( 1000000 / repeats ) * timeGLP / CLOCKS_PER_SEC << " us" << endl;
 
     cout << endl << endl;
     cout << " Graf zaimplementowany na macierzy sąsiedzctwa :: " << endl;
