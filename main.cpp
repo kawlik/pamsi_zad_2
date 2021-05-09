@@ -11,32 +11,45 @@ using namespace std;
 
 /*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
 
+void test( int density, int repeats, int size );
+
+/*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+
 int main( int argc, char * argv[] ) {
 
     srand( time(NULL) );
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    if( argc < 3 ) {
-        throw runtime_error( "Size ore output has not been specify!" );
+    if( argc < 2 ) {
+        throw runtime_error( "Size has not been specify!" );
     }
 
-    int size;
-    string fileOutput;
-
-    size = atoi(argv[1]);
-    fileOutput = argv[2];
+    int size = atoi( argv[1] );
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    int density;
+    int density[4] = { 25, 50, 75, 100 };
     int repeats;
-
-    cout << " Gęstość grafu w % : ";
-    cin >> density;
 
     cout << " Ilość powtórzeń N : ";
     cin >> repeats;
+
+    /*   *   *   *   *   *   *   *   *   *   */
+
+    for( int i = 0; i < 4; i++ ) {
+        test( density[i], repeats, size );
+    }
+
+    /*   *   *   *   *   *   *   *   *   *   */
+
+    cin.ignore();
+}
+
+/*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+
+void test( int density, int repeats, int size ) {
+
 
     clock_t start, stop;
 
@@ -54,8 +67,8 @@ int main( int argc, char * argv[] ) {
         GraphList GL( size );
         GraphMatrix GM( size );
 
-        GM.fill( density );
         GL.fill( density );
+        GM.fill( density );
 
         /*   *   *   *   *   */
 
@@ -108,6 +121,10 @@ int main( int argc, char * argv[] ) {
         timeGMP += stop - start;
     }
 
+    cout << endl << endl << endl;
+    cout << "--------------------------------------------------------------------------------" << endl;
+    cout << " Testy dla gęstości :: " << density << " %" << endl;
+
     cout << endl << endl;
     cout << " Graf zaimplementowany na liście sąsiedzctwa :: " << endl;
     cout << " -> całkowity czas wykonywania algorytmu Kruskala: " << 1000000 * timeGLK / CLOCKS_PER_SEC << " us" << endl;
@@ -123,25 +140,4 @@ int main( int argc, char * argv[] ) {
     cout << endl;
     cout << " -> średni czas wykonywania algorytmu Kruskala: " << ( 1000000 / repeats ) * timeGMK / CLOCKS_PER_SEC << " us" << endl;
     cout << " -> średni czas wykonywania algorytmu Prima: " << ( 1000000 / repeats ) * timeGMP / CLOCKS_PER_SEC << " us" << endl;
-
-    /*   *   *   *   *   *   *   *   *   *   */
-    /*/
-    GraphList test( 20 );
-    // GraphMatrix test( 20 );
-
-    test.fill( 25 );
-
-    cout << " Kruskal :: " << endl;
-    Kruskal( test, true );
-
-    cout << endl << endl;
-
-    cout << " Prima :: " << endl;
-    Prima( test, true );
-
-    test.print();
-    /*/
-    /*   *   *   *   *   *   *   *   *   *   */
-
-    cin.ignore();
 }

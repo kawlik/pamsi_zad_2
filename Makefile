@@ -14,6 +14,7 @@ RELOC = obj/main.o obj/Kruskal.o obj/Prima.o obj/graphList.o obj/graphMatrix.o o
 ./output: obj ${RELOC}
 	g++ ${FINAL} -o ./output ${RELOC}
 	rm -r obj
+	clear
 
 obj:
 	mkdir -p obj
