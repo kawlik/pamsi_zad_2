@@ -91,6 +91,8 @@ void test( int density, int repeats, int size ) {
         timeGMK += stop - start;
     }
 
+    cout << " Kruskal on density " << density << " finished ok. " << endl;
+
     //  Testy algorytmu Prima
     for( int i = 0; i < repeats; i++ ) {
 
@@ -120,6 +122,10 @@ void test( int density, int repeats, int size ) {
 
         timeGMP += stop - start;
     }
+
+    cout << " Prima on density " << density << " finished ok. " << endl;
+
+    /*   *   *   *   *   *   *   *   *   *   */
 
     cout << endl << endl << endl;
     cout << "--------------------------------------------------------------------------------" << endl;
